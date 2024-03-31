@@ -1,8 +1,13 @@
 package app.jdev.leaderboard.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Setter
+@Getter
 public class UserActivity {
 
     private String userId;
@@ -15,30 +20,6 @@ public class UserActivity {
     public UserActivity(String userId, String activityType, LocalDateTime timestamp) {
         this.userId = userId;
         this.activityType = activityType;
-        this.timestamp = timestamp;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getActivityType() {
-        return activityType;
-    }
-
-    public void setActivityType(String activityType) {
-        this.activityType = activityType;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
