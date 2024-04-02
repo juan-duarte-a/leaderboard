@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping("/api/activities")
 public class UserActivityController {
@@ -21,7 +23,8 @@ public class UserActivityController {
     }
 
     @PostMapping
-    public void publishActivity(@RequestBody UserActivity activity) throws JsonProcessingException {
+    public void publishActivity(@RequestBody UserActivity activity)
+            throws JsonProcessingException, ExecutionException, InterruptedException {
         kafkaProducerService.sendUserActivity(activity);
     }
 
